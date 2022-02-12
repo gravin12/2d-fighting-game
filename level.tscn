@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Screen Shot 2021-12-04 at 12.42.06 PM copy.png" type="Texture" id=1]
+[ext_resource path="res://Player1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player2.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 224.721, 125.835 )
+
+[node name="level" type="Node2D"]
+
+[node name="Player2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 25 )
+
+[node name="Player1" parent="." instance=ExtResource( 2 )]
+position = Vector2( -157, 31 )
+
+[node name="ground 1" type="StaticBody2D" parent="."]
+position = Vector2( 403.636, -424.612 )
+scale = Vector2( 0.639998, 0.231267 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ground 1"]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground 1"]
+shape = SubResource( 1 )
+
+[node name="ground 2" type="StaticBody2D" parent="."]
+position = Vector2( 378.932, 423.58 )
+scale = Vector2( 4.64, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ground 2"]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground 2"]
+shape = SubResource( 1 )
+
+[node name="ground 3" type="StaticBody2D" parent="."]
+position = Vector2( 899.913, -78.7807 )
+scale = Vector2( 0.639998, 0.231267 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ground 3"]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground 3"]
+shape = SubResource( 1 )
+
+[node name="ground 4" type="StaticBody2D" parent="."]
+position = Vector2( -92.6431, -90.5037 )
+scale = Vector2( 0.639998, 0.231267 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ground 4"]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground 4"]
+shape = SubResource( 1 )
+
+[node name="ground 5" type="StaticBody2D" parent="."]
+position = Vector2( 110, 175 )
+rotation = 1.57456
+scale = Vector2( 0.639998, 0.231267 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ground 5"]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground 5"]
+shape = SubResource( 1 )
+
+[connection signal="hit_player" from="Player2" to="Player1" method="_on_Player2_hit_player"]
+[connection signal="hit_player" from="Player1" to="Player2" method="_on_Player1_hit_player"]
